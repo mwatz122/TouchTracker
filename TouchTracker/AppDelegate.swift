@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  TouchTracker
 //
-//  Created by Matthew Watzman on 2/1/18.
+//  Created by Matthew Watzman on 2/1/18..
 //  Copyright © 2018 Matthew Watzman. All rights reserved.
 //
 
