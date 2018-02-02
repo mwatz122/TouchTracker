@@ -14,6 +14,7 @@
 		074585112023DC2D00A48A33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0745850F2023DC2D00A48A33 /* LaunchScreen.storyboard */; };
 		0745851C2023DC2E00A48A33 /* TouchTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0745851B2023DC2E00A48A33 /* TouchTrackerTests.swift */; };
 		074585272023DC2E00A48A33 /* TouchTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074585262023DC2E00A48A33 /* TouchTrackerUITests.swift */; };
+		07723E6E2024D8F7002DB43F /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07723E6D2024D8F7002DB43F /* Line.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		074585222023DC2E00A48A33 /* TouchTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		074585262023DC2E00A48A33 /* TouchTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchTrackerUITests.swift; sourceTree = "<group>"; };
 		074585282023DC2E00A48A33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07723E6D2024D8F7002DB43F /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				0745850D2023DC2D00A48A33 /* Assets.xcassets */,
 				0745850F2023DC2D00A48A33 /* LaunchScreen.storyboard */,
 				074585122023DC2D00A48A33 /* Info.plist */,
+				07723E6D2024D8F7002DB43F /* Line.swift */,
 			);
 			path = TouchTracker;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07723E6E2024D8F7002DB43F /* Line.swift in Sources */,
 				074585092023DC2D00A48A33 /* ViewController.swift in Sources */,
 				074585072023DC2D00A48A33 /* AppDelegate.swift in Sources */,
 			);
