@@ -36,4 +36,14 @@ class DrawView : UIView {
             stroke(line)
         }
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        
+        // get location of the touch in view's coordinate system
+        let location = touch.location(in: self)
+        
+        currentLine = Line(begin: location, end: location)
+        setNeedsDisplay()
+    }
 }
