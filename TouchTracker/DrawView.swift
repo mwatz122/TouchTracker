@@ -30,6 +30,7 @@ class DrawView : UIView {
     @objc func doubleTap(_ gestureRecognizer: UIGestureRecognizer) {
         print("Recognized a double tap")
         
+        selectedLineIndex = nil
         currentLines.removeAll()
         finishedLines.removeAll()
         setNeedsDisplay()
@@ -37,6 +38,10 @@ class DrawView : UIView {
     
     @objc func tap(_ gestureRecognizer: UIGestureRecognizer) {
         print("Recognized a tap")
+        
+        let point = gestureRecognizer.location(in: self)
+        selectedLineIndex = indexOfLine(at: point)
+        setNeedsDisplay()
     }
     
     @IBInspectable var finishedLineColor: UIColor = UIColor.black {
