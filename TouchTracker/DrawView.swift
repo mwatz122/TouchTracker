@@ -11,7 +11,14 @@ import UIKit
 class DrawView : UIView {
     var currentLines = [NSValue:Line]()
     var finishedLines = [Line]()
-    var selectedLineIndex: Int?
+    var selectedLineIndex: Int? {
+        didSet {
+            if selectedLineIndex == nil {
+                let menu = UIMenuController.shared
+                menu.setMenuVisible(false, animated: true)
+            }
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -41,6 +48,30 @@ class DrawView : UIView {
         
         let point = gestureRecognizer.location(in: self)
         selectedLineIndex = indexOfLine(at: point)
+        
+        // Grab the menu controller
+        let menu = UIMenuController.shared
+        
+        if selectedLineIndex != nil {
+            
+            // Make DrawView the target of menu item action messages
+            becomeFirstResponder()
+            
+            // Create a new "Delete" UIMenuItem
+            let deleteItem = UIMenuItem(title: "Delete", action: #selector(DrawView.deleteLine(_:)))
+            
+            menu.menuItems = [deleteItem]
+            
+            // Tell the menu where it should come from and show it
+            let targetRect = CGRect(x: point.x, y: point.y, width: 2, height: 2)
+            
+            menu.setTargetRect(targetRect, in: self)
+            menu.setMenuVisible(true, animated: true)
+        } else {
+            // Hide the menu if no line is selected
+            menu.setMenuVisible(false, animated: true)
+        }
+        
         setNeedsDisplay()
     }
     
@@ -169,5 +200,20 @@ class DrawView : UIView {
         }
         
         return nil
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
+    
+    @objc func deleteLine(_ sender: UIMenuController) {
+        // Remove the selected line from the list of finished lines
+        if let index = selectedLineIndex {
+            finishedLines.remove(at: index)
+            selectedLineIndex = nil
+            
+            // Redraw everything
+            setNeedsDisplay()
+        }
     }
 }
